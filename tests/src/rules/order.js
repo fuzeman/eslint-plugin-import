@@ -140,6 +140,29 @@ ruleTester.run('order', rule, {
         ['sibling', 'parent', 'external'],
       ]}],
     }),
+    // Grouping project modules
+    test({
+      code: `
+        var fs = require('fs');
+        var index = require('./');
+        var path = require('path');
+
+        var lodash = require('lodash');
+
+        var sibling = require('./foo');
+        var relParent3 = require('../');
+        var async = require('async');
+        var relParent1 = require('../foo');
+      `,
+      options: [{groups: [
+        ['builtin', 'index'],
+        'project',
+        ['sibling', 'parent', 'external'],
+      ]}],
+      settings: {
+        'import/project-modules': ['lodash']
+      },
+    }),
     // Omitted types should implicitly be considered as the last type
     test({
       code: `
@@ -622,6 +645,28 @@ ruleTester.run('order', rule, {
         ruleId: 'order',
         message: '`./sibling` import should occur before import of `./`',
       }],
+    }),
+    // project module before parent
+    test({
+      code: `
+        var parent = require('../parent');
+        var lodash = require('lodash');
+      `,
+      output: `
+        var lodash = require('lodash');
+        var parent = require('../parent');
+      `,
+      errors: [{
+        ruleId: 'order',
+        message: '`lodash` import should occur before import of `../parent`',
+      }],
+      options: [{groups: [
+        'project',
+        'parent'
+      ]}],
+      settings: {
+        'import/project-modules': ['lodash']
+      },
     }),
     // Multiple errors
     test({
