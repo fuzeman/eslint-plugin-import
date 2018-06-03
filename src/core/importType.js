@@ -1,5 +1,6 @@
 import cond from 'lodash/cond'
 import coreModules from 'resolve/lib/core'
+import minimatch from 'minimatch'
 import { join } from 'path'
 
 import resolve from 'eslint-module-utils/resolve'
@@ -42,6 +43,12 @@ export function isExternalModuleMain(name, settings, path) {
   return externalModuleMainRegExp.test(name) && isExternalPath(path, name, settings)
 }
 
+function isProjectModule(name, settings) {
+  const base = baseModule(name)
+  const modules = (settings && settings['import/project-modules']) || []
+  return modules.some(module => minimatch(base, module))
+}
+
 const scopedRegExp = /^@[^/]+\/[^/]+/
 function isScoped(name) {
   return scopedRegExp.test(name)
@@ -72,6 +79,7 @@ function isRelativeToSibling(name) {
 const typeTest = cond([
   [isAbsolute, constant('absolute')],
   [isBuiltIn, constant('builtin')],
+  [isProjectModule, constant('project')],
   [isExternalModule, constant('external')],
   [isScoped, constant('external')],
   [isInternalModule, constant('internal')],

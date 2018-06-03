@@ -102,4 +102,24 @@ describe('importType(name)', function () {
     const foldersContext = testContext({ 'import/external-module-folders': ['node_modules'] })
     expect(importType('builtin-modules', foldersContext)).to.equal('external')
   })
+
+  it("should return 'project' for modules in 'project-modules'", function() {
+    expect(importType('lodash', context)).to.equal('external')
+
+    const modulesContext = testContext({ 'import/project-modules': ['lodash'] })
+    expect(importType('lodash', modulesContext)).to.equal('project')
+    expect(importType('lodash/forEach.js', modulesContext)).to.equal('project')
+    expect(importType('lodash.create', modulesContext)).to.equal('external')
+    expect(importType('lodash-es', modulesContext)).to.equal('external')
+  })
+
+  it("should return 'project' for wildcard modules in 'project-modules'", function() {
+    expect(importType('lodash', context)).to.equal('external')
+
+    const modulesContext = testContext({ 'import/project-modules': ['lodash*'] })
+    expect(importType('lodash', modulesContext)).to.equal('project')
+    expect(importType('lodash/forEach.js', modulesContext)).to.equal('project')
+    expect(importType('lodash.create', modulesContext)).to.equal('project')
+    expect(importType('lodash-es', modulesContext)).to.equal('project')
+  })
 })
