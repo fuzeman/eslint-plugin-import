@@ -1,6 +1,6 @@
 {
   "name": "@fuzeman/eslint-plugin-import",
-  "version": "2.12.0",
+  "version": "2.12.0-fuzeman.1",
   "description": "Import with sanity. (Fork of eslint-plugin-import)",
   "engines": {
     "node": ">=4"
