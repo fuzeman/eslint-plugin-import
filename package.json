@@ -1,7 +1,7 @@
 {
-  "name": "eslint-plugin-import",
+  "name": "@fuzeman/eslint-plugin-import",
   "version": "2.12.0",
-  "description": "Import with sanity.",
+  "description": "Import with sanity. (Fork of eslint-plugin-import)",
   "engines": {
     "node": ">=4"
   },
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/benmosher/eslint-plugin-import"
+    "url": "https://github.com/fuzeman/eslint-plugin-import"
   },
   "keywords": [
     "eslint",
@@ -37,12 +37,12 @@
     "import",
     "export"
   ],
-  "author": "Ben Mosher <me@benmosher.com>",
+  "author": "Dean Gardiner <me@dgardiner.net>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/benmosher/eslint-plugin-import/issues"
+    "url": "https://github.com/fuzeman/eslint-plugin-import/issues"
   },
-  "homepage": "https://github.com/benmosher/eslint-plugin-import",
+  "homepage": "https://github.com/fuzeman/eslint-plugin-import",
   "devDependencies": {
     "babel-eslint": "8.0.x",
     "babel-plugin-istanbul": "^4.1.6",

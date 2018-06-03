@@ -1,12 +1,11 @@
-# eslint-plugin-import
+# @fuzeman/eslint-plugin-import
 
-[![build status](https://travis-ci.org/benmosher/eslint-plugin-import.svg?branch=master)](https://travis-ci.org/benmosher/eslint-plugin-import)
-[![Coverage Status](https://coveralls.io/repos/github/benmosher/eslint-plugin-import/badge.svg?branch=master)](https://coveralls.io/github/benmosher/eslint-plugin-import?branch=master)
-[![win32 build status](https://ci.appveyor.com/api/projects/status/3mw2fifalmjlqf56/branch/master?svg=true)](https://ci.appveyor.com/project/benmosher/eslint-plugin-import/branch/master)
-[![npm](https://img.shields.io/npm/v/eslint-plugin-import.svg)](https://www.npmjs.com/package/eslint-plugin-import)
-[![npm downloads](https://img.shields.io/npm/dt/eslint-plugin-import.svg?maxAge=2592000)](http://www.npmtrends.com/eslint-plugin-import)
+[![build status](https://travis-ci.org/fuzeman/eslint-plugin-import.svg?branch=master)](https://travis-ci.org/fuzeman/eslint-plugin-import)
+[![npm](https://img.shields.io/npm/v/@fuzeman/eslint-plugin-import.svg)](https://www.npmjs.com/package/@fuzeman/eslint-plugin-import)
 
 This plugin intends to support linting of ES2015+ (ES6+) import/export syntax, and prevent issues with misspelling of file paths and import names. All the goodness that the ES2015+ static module syntax intends to provide, marked up in your editor.
+
+Fork of [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import).
 
 **IF YOU ARE USING THIS WITH SUBLIME**: see the [bottom section](#sublimelinter-eslint) for important info.
 
